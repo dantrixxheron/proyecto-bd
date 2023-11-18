@@ -1,6 +1,7 @@
 // Sidebar.tsx
 import React, { useState } from 'react';
 import '../index.css';
+import SidebarContent from './sidebarContent';
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -14,6 +15,8 @@ const Sidebar: React.FC = () => {
         {isOpen ? '<--' : '-->'}
       </button>
       {/* Agrega aquí el contenido de tu barra lateral */}
+      <SidebarContent icon='db' />
+      <SidebarContent icon='settings'/>
     </div>
   );
 };

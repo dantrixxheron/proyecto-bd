@@ -1,11 +1,13 @@
-// import React from 'react';
+import React from 'react';
 import './App.css';
-import Sidebar from './components/Sidebar';  // Corregir el nombre del componente aquí
+import Sidebar from './components/Sidebar';
+import Textbox from './components/textbox';
 
 function App() {
   return (
     <div className="App">
       <Sidebar />
+      {/* <Textbox /> */}
     </div>
   );
 }
