@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-
-interface SidebarIconProps {
+import { BiSolidCoinStack } from "react-icons/bi";
+import { IoMdSettings } from "react-icons/io";
+interface SidebarContentProps {
     icon: string;
 }
-
-const SidebarIcon: React.FC<SidebarIconProps> = ({ icon }) => {
+const SidebarContent: React.FC<SidebarContentProps> = ({ icon }) => {
     const [text, setText] = useState("");
-
+    const IconComponent = ()=>{
+        if(icon == 'db'){
+            return <BiSolidCoinStack />
+        }else if(icon == 'settings'){
+            return <IoMdSettings />
+        }
+    }
     // useEffect(() => {
     //     // Realizar solicitud a la base de datos para obtener el nombre de la base de datos en la raíz
     //     // Aquí debes implementar la lógica para obtener el nombre de la base de datos desde la BD
@@ -23,14 +29,12 @@ const SidebarIcon: React.FC<SidebarIconProps> = ({ icon }) => {
 
     //     obtenerNombreBaseDeDatos();
     // }, []);
-
     return (
-        <div className="text-database">
-            <img src={icon} alt="Icon" />
-            <p> Base de datos</p>
-            {/* <p>{text}</p> */}
+        <div className="text-sidebar">            
+            <p> {IconComponent()} Database Name</p>
+            {/* <p> {IconComponent} {text}</p> */}
         </div>
     );
 };
 
-export default SidebarIcon;
+export default SidebarContent;

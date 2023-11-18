@@ -1,7 +1,7 @@
 // Sidebar.tsx
 import React, { useState } from 'react';
 import '../index.css';
-import SidebarIcon from './sidebarIcons';
+import SidebarContent from './sidebarContent';
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -15,9 +15,8 @@ const Sidebar: React.FC = () => {
         {isOpen ? '<--' : '-->'}
       </button>
       {/* Agrega aquí el contenido de tu barra lateral */}
-      <SidebarIcon icon="./assets/database.svg" />
-      <SidebarIcon icon="./assets/database.svg" />
-      <SidebarIcon icon="./assets/database.svg" />
+      <SidebarContent icon='db' />
+      <SidebarContent icon='settings'/>
     </div>
   );
 };
