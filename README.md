@@ -16,6 +16,9 @@ Utilizamos React, Typescript y Prisma.IO para la integración de MySQL.
  * Prisma.IO
  * MySQL
 
+### Recursos:
+1. Íconos: https://react-icons.github.io/react-icons/
+
 #### Estructura GitHub
 Hay 2 ramas activas a parte de la principal: Home y Login:
 * Home: es la rama donde se van a estar desarrollando cambios de todo lo relacionado con la página principal (entre esas cosas está el sidebar que ya está completo en diseño, el cuadro de texto donde se podrá escribir la consulta y el cuadro de resultados)*.
