@@ -1,15 +1,14 @@
+// App.tsx
 import React from 'react';
-import './App.css';
-import Sidebar from './components/Sidebar';
-import Textbox from './components/textbox';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './components/Routes';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Sidebar />
-      {/* <Textbox /> */}
-    </div>
+    <Router>
+      <AppRoutes  />
+    </Router>
   );
-}
+};
 
 export default App;

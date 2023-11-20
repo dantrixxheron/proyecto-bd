@@ -1,9 +1,9 @@
 // Sidebar.tsx
 import React, { useState } from 'react';
-import SidebarContent from './sidebarContent';
-import './sidebar.css';
+import SidebarContent from './SidebarContent';
+import './css/sidebar.css';
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-import textbox from '../components/textbox'
+import textbox from './Textbox'
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
