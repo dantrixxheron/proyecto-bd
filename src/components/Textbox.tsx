@@ -13,7 +13,6 @@ const Textbox: React.FC = () => {
 
       //Mensajes
       validateSqlQuery(query);
-      console.log('Ejecutando la siguiente consulta:\n', query);
     } catch (error) {
       alert(`Error al ejecutar la consulta: ${error.message}`);
     }
@@ -80,8 +79,17 @@ const Textbox: React.FC = () => {
   };
 
   const handleQueryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setQuery(event.target.value);
-    setError(null); // Limpiar el error cuando el texto cambie
+    const newQuery = event.target.value;
+    const lastCharacter = newQuery.charAt(newQuery.length - 1);
+
+      // Verificar si el último carácter es punto y coma (;)
+    if (lastCharacter === ';') {
+      setQuery(newQuery.substring(0, newQuery.indexOf(';') + 1));
+    } else {
+      setQuery(newQuery);
+    }
+
+    setError(null); //Limpiar mensaje de error
   };
 
   return (
