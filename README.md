@@ -32,5 +32,6 @@ ESTO ES IMPORTANTE ya que los cambios que suban se subirán y sincronizarán en 
 
 #### ¿Cómo iniciar una ejecución local del proyecto?
 1. Vas a terminal de Visual Studio Code (ya sea con codespaces o con tu Editor de Código siempre y cuando ya hayas bajado el repositorio y lo estés editando de esa manera).
-2. Ejecutas *npm use 14* (para usar la versión 14 y posterior para que te deje ejecutar el siguiente comando)
-3. *npm run dev*.
+2. Ejecutas *nvm install 14*
+3. Ejecutas *nvm use 14* (para usar la versión 14 y posterior para que te deje ejecutar el siguiente comando)
+4. *npm run start*.
