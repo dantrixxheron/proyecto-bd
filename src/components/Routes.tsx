@@ -6,7 +6,7 @@ import Login from './Login';
 
 const PrivateRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => {
     /*******EL FALSE: INICIO DE SESION PERO DEBES DETENER Y PRENDER SERVICIO*******/
-    const isAuthenticated = true; // Reemplaza esto con tu lógica de autenticación
+    const isAuthenticated = false; // Reemplaza esto con tu lógica de autenticación
   return isAuthenticated ? <>{element}</> : <Navigate to="/login" />;
 };
 

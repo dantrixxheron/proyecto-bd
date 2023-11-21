@@ -73,9 +73,9 @@
     background-color: #444;
   }
 */
-  .row-setings {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-  }
+.row-setings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
