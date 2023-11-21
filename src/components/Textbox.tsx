@@ -20,7 +20,7 @@ const Textbox: React.FC = () => {
   };
 
   const validateSqlQuery = (sqlQuery: string) => {
-    const forbiddenKeywords = ['DROP', 'DELETE']; // Claves prohibidas
+    const forbiddenKeywords = ['DROP', 'DELETE', 'UPDATE']; // Claves prohibidas
     const mandatoryClauses = ['SELECT', 'FROM']; // Sintaxis obligatoria
     const optionalClauses = ['WHERE', 'GROUP BY', 'HAVING', 'ORDER BY', 'LIMIT']; // Sintaxis opcional
 
