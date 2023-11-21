@@ -11,11 +11,12 @@ const Textbox: React.FC = () => {
         throw new Error('Por favor, ingrese una consulta SQL.');
       }
 
-      //Mensajes
+      //Mensajes: error
       validateSqlQuery(query);
-    } catch (error) {
-      alert(`Error al ejecutar la consulta: ${error.message}`);
-    }
+    } catch (err) {
+    const error = err instanceof Error ? err.message : 'Error desconocido';
+    alert(`Error al ejecutar la consulta: ${error}`);
+  }
   };
 
   const validateSqlQuery = (sqlQuery: string) => {
