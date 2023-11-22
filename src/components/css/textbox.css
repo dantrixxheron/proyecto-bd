@@ -4,7 +4,7 @@
 }
   
   .textarea {
-    width: calc(100% - 16%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
+    width: calc(100% - 17%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
     height: 50vh; /* Ajusta la altura según tus necesidades */
     border-radius: 5px;
     padding: 5px;
@@ -30,15 +30,15 @@
   
   /* Estilos adicionales cuando el Sidebar está cerrado */
   .textarea.closed {
-    margin-left: auto; /* Ancho cuando el Sidebar está cerrado */
-    width: 98%;
-  }
-  .runbutton.closed {
-    margin-left: auto;
-    width: 98%;
-  }
-  /* Estilos adicionales cuando el Sidebar está abierto */
-  .textarea.open {
+    margin-left: 5vh; /* Ancho cuando el Sidebar está cerrado */
+    width: 95%;
+}
+.runbutton.closed {
+    margin-left: 5vh; /* Ancho cuando el Sidebar está cerrado */
+    width: 95%;
+}
+/* Estilos adicionales cuando el Sidebar está abierto */
+.textarea.open {
     margin-left: 15%; /* Ancho cuando el Sidebar está abierto */
   }
 .runbutton.open {
