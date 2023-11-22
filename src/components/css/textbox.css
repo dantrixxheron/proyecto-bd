@@ -1,17 +1,21 @@
-  .textbox:focus {
-    outline: none;
-    border: 1px solid #aaa;
-  }
+.textbox {
+    transition: margin-left 0.3s ease; /* Agrega una transición para suavizar el cambio de margen izquierdo */
+    align-items: center;
+}
   
-  .textbox:hover {
-    border: 1px solid #aaa;
+  .textarea {
+    width: calc(100% - 16%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
+    height: 50vh; /* Ajusta la altura según tus necesidades */
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
   }
   
   .runbutton {
-    width: 100%;
+    width: calc(100% - 16%);
     height: 30px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: none;
     padding: 5px;
     margin-bottom: 10px;
     background-color: #333;
@@ -23,3 +27,21 @@
   .runbutton:hover {
     background-color: #444;
   }
+  
+  /* Estilos adicionales cuando el Sidebar está cerrado */
+  .textarea.closed {
+    margin-left: auto; /* Ancho cuando el Sidebar está cerrado */
+    width: 98%;
+  }
+  .runbutton.closed {
+    margin-left: auto;
+    width: 98%;
+  }
+  /* Estilos adicionales cuando el Sidebar está abierto */
+  .textarea.open {
+    margin-left: 15%; /* Ancho cuando el Sidebar está abierto */
+  }
+.runbutton.open {
+    margin-left: 15%;
+}
+  

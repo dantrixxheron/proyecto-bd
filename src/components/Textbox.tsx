@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './css/textbox.css';
 
-const Textbox: React.FC = () => {
+interface TextboxProps {
+  isOpen: boolean;
+}
+
+const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
   const [query, setQuery] = useState('');
   const [error, setError] = useState<string | null>(null);
 
@@ -96,8 +100,8 @@ const Textbox: React.FC = () => {
 
   return (
     <div>
-      <textarea className='textarea' value={query} onChange={handleQueryChange} />
-      <button className='runbutton' onClick={handleExecuteQuery}>
+      <textarea className={`textarea ${isOpen ? 'open' : 'closed'}`} value={query} onChange={handleQueryChange} />
+      <button className={`runbutton ${isOpen?'open':'closed'}`} onClick={handleExecuteQuery}>
         Ejecutar
       </button>
 
