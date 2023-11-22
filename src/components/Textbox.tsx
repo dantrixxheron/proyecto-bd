@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import './css/textbox.css';
 
 const Textbox: React.FC = () => {
   const [query, setQuery] = useState('');

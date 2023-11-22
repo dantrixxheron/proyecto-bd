@@ -22,6 +22,7 @@ const Sidebar: React.FC = () => {
           <SidebarContent icon='home' onclick={()=>window.location.href='#'}/>
           <SidebarContent icon='settings' onclick={()=>window.location.href='https://github.com'}/>
           <SidebarContent icon='reload' onclick={()=>"#"}/>
+          <SidebarContent icon='logout' onclick={()=>"#"}/>
         </div>
         <SidebarContent icon='db' info="Database name" onclick={()=>"#"} />
       </div>

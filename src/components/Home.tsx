@@ -1,15 +1,15 @@
 
 import React from 'react';
 import Sidebar from './Sidebar';
-// import TextBox from './TextBox';
+import TextBox from './Textbox';
 // import Consulta from './Consulta';
 
 const Home = () => {
   return (
     <div>
       <Sidebar />
-      {/* <TextBox />
-      <Consulta /> */}
+      <TextBox />
+      {/* <Consulta /> */}
     </div>
   );
 }
