@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiSolidCoinStack } from "react-icons/bi";
-import { IoSettings, IoReloadCircle, IoHomeSharp } from "react-icons/io5";
+import { IoSettings, IoReloadCircle, IoHomeSharp, IoLogOut } from "react-icons/io5";
 
 interface SidebarContentProps {
   icon: string;
@@ -18,6 +18,8 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
       return <IoReloadCircle />;
     } else if (icon === "home") {
       return <IoHomeSharp />;
+    } else if(icon==="logout"){
+      return <IoLogOut />;
     } else {
       return <BiSolidCoinStack />;
     }
