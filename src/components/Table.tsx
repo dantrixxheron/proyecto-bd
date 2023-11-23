@@ -14,8 +14,8 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
   const headers = Object.keys(data[0]);
 
   return (
-    <div>
-    <table className={`table ${(isOpen)? 'open': 'closed'}`}>
+    <div className={`table ${(isOpen)? 'open': 'closed'}`}>
+    <table>
       <thead>
         <tr>
           {headers.map((header) => (
@@ -33,8 +33,7 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
         ))}
       </tbody>
     </table>
-
-    //PENDIENTE
+    {/* //PENDIENTE */}
     <div>
         {/* Botón para ir a la página anterior */}
         <button>Anterior</button>
