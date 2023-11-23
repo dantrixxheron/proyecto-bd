@@ -33,6 +33,14 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
         ))}
       </tbody>
     </table>
+
+    //PENDIENTE
+    <div>
+        {/* Botón para ir a la página anterior */}
+        <button>Anterior</button>
+        {/* Botón para ir a la página siguiente */}
+        <button>Siguiente</button>
+      </div>
     </div>
   );
 };
