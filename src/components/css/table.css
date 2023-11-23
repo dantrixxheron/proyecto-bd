@@ -37,3 +37,16 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
     background-color: #666;
 }
+.null.open{
+    margin-left: 15%;
+}
+.null.closed{
+    margin-left: 5vh; /* Ancho cuando el Sidebar está cerrado */
+    width: 95%;
+}
+.null{
+    width: calc(100% - 17%);
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}

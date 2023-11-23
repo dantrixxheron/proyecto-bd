@@ -8,7 +8,7 @@ interface TableProps {
 
 const Table: React.FC<TableProps> = ({ data, isOpen }) => {
   if (data.length === 0) {
-    return <div>No hay datos disponibles.</div>;
+    return <div className={`null ${(isOpen)? 'open': 'closed'}`}>No hay datos disponibles.</div>;
   }
 
   const headers = Object.keys(data[0]);
