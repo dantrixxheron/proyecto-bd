@@ -5,10 +5,10 @@
   
   .textarea {
     width: calc(100% - 17%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
-    height: 20vh; /* Ajusta la altura según tus necesidades */
+    height: 18vh; /* Ajusta la altura según tus necesidades */
     border-radius: 5px;
     padding: 5px;
-    margin: 10px;
+    margin: 28px;
   }
   
   .runbutton {

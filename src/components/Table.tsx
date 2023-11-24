@@ -59,10 +59,10 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
     //PENDIENTE
     <div>
         {/* Botón para ir a la página anterior */}
-        <button className={`button ${(isOpen) ? 'open' : 'closed'}`} onClick={prevPage} disabled={currentPage === 1}> Anterior </button>
+        <button className={`btnAnterior ${(isOpen) ? 'open' : 'closed'}`} onClick={prevPage} disabled={currentPage === 1}> Anterior </button>
 
         {/* Botón para ir a la página siguiente */}
-        <button className={`button ${(isOpen) ? 'open' : 'closed'}`} onClick={nextPage} disabled={currentPage === totalPages}> Siguiente</button>
+        <button className={`btnSiguiente ${(isOpen) ? 'open' : 'closed'}`} onClick={nextPage} disabled={currentPage === totalPages}> Siguiente</button>
       </div>
     </div>
   );
