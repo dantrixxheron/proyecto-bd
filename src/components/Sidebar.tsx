@@ -1,10 +1,9 @@
 // Sidebar.tsx
-import React, { useState } from 'react';
-import SidebarContent from './SidebarContent';
-import './css/sidebar.css';
-import { BiSolidCoinStack } from "react-icons/bi";
 import { IoSettings, IoReloadCircle, IoHomeSharp, IoLogOut } from "react-icons/io5";
-
+import React, { useEffect, useState } from 'react';
+import SidebarContent from './SidebarContent';
+import { BiSolidCoinStack } from 'react-icons/bi';
+import SidebarDBN from './SidebarDBN';
 interface SidebarProps {
   isOpen: boolean;
 }
@@ -19,7 +18,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
           <SidebarContent icon={IoLogOut} onclick={"./Login"}/>
         </div>
         <div className='dbnames'>
-          <SidebarContent icon={BiSolidCoinStack} info="Database name" onclick={"#"} />
+          <SidebarDBN databaseName="mysql" mysqlDatabases={[]}/>
       </div>
       </div>
     </div>
