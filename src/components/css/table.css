@@ -51,6 +51,7 @@ table tr:nth-child(even) {
     color: #fff;
 }
 
+
 /* Botones */
 button:hover {
     background-color: #444;
@@ -93,4 +94,55 @@ button:hover {
 .btnSiguiente.open{
     left: 70.5%;
 }
-  
+
+
+/* Menú CRUD */
+.mini-menu {
+    position: absolute;
+    top: 42%;
+    left: 98%;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    z-index: 2;
+}
+/* Botones del menú CRUD */
+.mini-menu button {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 8px;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.mini-menu.open{  /* Menu de opciones cuando el Sidebar esta abierto */
+    left: 99%;
+}
+
+
+/* Botón para acceder al menú */
+.btn-toggle-menu {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    left: 98%;
+    top: 32px; /* Ajusta según tu preferencia */
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+.btn-toggle-menu:hover {
+    background-color: #444;
+}
+.btn-toggle-menu.open { /* Boton de menu de opciones cuando el Sidebar esta abierto */
+    left: 98.7%;
+}
