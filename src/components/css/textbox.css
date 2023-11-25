@@ -40,8 +40,10 @@
 /* Estilos adicionales cuando el Sidebar está abierto */
 .textarea.open {
     margin-left: 15%; /* Ancho cuando el Sidebar está abierto */
+    width: calc(100% - 18%); /* Ancho cuando el Sidebar está abierto */
   }
 .runbutton.open {
     margin-left: 15%;
+    width: calc(100% - 18%);
 }
   
