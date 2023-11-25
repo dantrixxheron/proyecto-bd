@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import SidebarContent from './SidebarContent';
 import { BiSolidCoinStack } from 'react-icons/bi';
 import SidebarDBN from './SidebarDBN';
+import './css/sidebar.css';
 interface SidebarProps {
   isOpen: boolean;
 }

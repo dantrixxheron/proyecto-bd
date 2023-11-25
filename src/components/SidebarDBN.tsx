@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SidebarContent from './SidebarContent';
 import { BiSolidCoinStack } from 'react-icons/bi';
+import { getDatabases } from '../lib/api/getDatabases';
 
 interface SidebarDBNProps {
   databaseName: string;
@@ -9,15 +10,20 @@ interface SidebarDBNProps {
 }
 
 const SidebarDBN: React.FC<SidebarDBNProps> = ({ databaseName, mysqlDatabases }) => {
+  const [databases, setDatabases] = useState<string[]>([]);
+
+  useEffect(() => {
+    // const databases = await getDatabases();
+
+    // setDatabases(databases);
+  }, [])
+
   return (
     <div>
-      <h2>Database Name: {databaseName}</h2>
-      <h3>MySQL Databases:</h3>
-      <ul>
-        {mysqlDatabases.map((dbName) => (
+      
+        {databases.map((dbName) => (
           <SidebarContent icon={BiSolidCoinStack} info={dbName} />
         ))}
-      </ul>
     </div>
   );
 };
