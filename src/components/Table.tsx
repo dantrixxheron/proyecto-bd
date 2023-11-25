@@ -46,17 +46,16 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, index) => (
-          <tr key={index}>
-            {headers.map((header) => (
-              <td key={header}>{row[header]}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
+  {currentItems.map((row, index) => (
+    <tr key={index}>
+      {headers.map((header) => (
+        <td key={header}>{row[header]}</td>
+      ))}
+    </tr>
+  ))}
+</tbody>
     </table>
 
-    //PENDIENTE
     <div>
         {/* Botón para ir a la página anterior */}
         <button className={`btnAnterior ${(isOpen) ? 'open' : 'closed'}`} onClick={prevPage} disabled={currentPage === 1}> Anterior </button>
