@@ -3,10 +3,11 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from './Home';
 import Login from './Login';
+import { useAuth } from './AuthContext'; // Importa useAuth desde el archivo correcto
 
 const PrivateRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => {
-    /*******EL FALSE: INICIO DE SESION PERO DEBES DETENER Y PRENDER SERVICIO*******/
-    const isAuthenticated = true; // Reemplaza esto con tu lógica de autenticación
+  const { isAuthenticated } = useAuth();
+
   return isAuthenticated ? <>{element}</> : <Navigate to="/login" />;
 };
 
