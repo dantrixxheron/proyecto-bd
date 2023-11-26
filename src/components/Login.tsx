@@ -28,7 +28,7 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h1>Login</h1>
+        <h1>Iniciar Sesión</h1>
         <div className="input-container">
           <FaUserAlt className="icon"/>
           <input
@@ -47,7 +47,7 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className='login-button' onClick={handleLogin}>Login</button>
+        <button className='login-button' onClick={handleLogin}>Ingresar</button>
       </div>
     </div>
   );

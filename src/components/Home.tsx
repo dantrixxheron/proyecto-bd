@@ -44,7 +44,6 @@ const Home = () => {
       <Sidebar isOpen={isOpen} />
       <Textbox isOpen={isOpen} />
       
-       // Tabla
       <Table data={tableData} isOpen={isOpen} />
     </div>
   );

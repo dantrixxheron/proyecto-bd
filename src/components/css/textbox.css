@@ -4,7 +4,7 @@
 }
   
   .textarea {
-    width: calc(100% - 18%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
+    width: calc(100% - 16%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
     height: 18vh; /* Ajusta la altura según tus necesidades */
     border-radius: 5px;
     padding: 5px;
