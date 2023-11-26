@@ -114,12 +114,15 @@ button:hover {
     width: 100%;
     margin-bottom: 5px;
     padding: 8px;
-    background-color: #444;
+    background-color: #333;
     border: none;
     color: #fff;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+}
+.mini-menu button:hover {
+    background-color: #444; 
 }
 .mini-menu.open{  /* Menu de opciones cuando el Sidebar esta abierto */
     left: 99%;
@@ -138,7 +141,7 @@ button:hover {
     left: 98%;
     top: 32px; /* Ajusta según tu preferencia */
     transition: background-color 0.3s ease;
-    z-index: 1;
+    z-index: 3;
 }
 .btn-toggle-menu:hover {
     background-color: #444;

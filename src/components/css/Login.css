@@ -9,7 +9,8 @@
   
   .login-form {
     background-color: #444; /* Color del formulario */
-    padding: 25px;
+    padding: 45px;
+    height: 300px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;

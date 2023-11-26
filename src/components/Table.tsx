@@ -43,10 +43,9 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
   // Renderizar la tabla
   return (
     <div>
-      {/* Botón para mostrar/ocultar el menú */}
-      <button className={`btn-toggle-menu ${isOpen ? 'open' : 'closed'}`} onClick={toggleMenu}>:</button>
-
-      {/* Menú de operaciones CRUD */}
+      {
+      /* Menú de operaciones CRUD */}
+      <button className={`btn-toggle-menu ${isOpen ? 'open' : 'closed'}`} onClick={toggleMenu}>⁝</button>
       {showMenu && (
     <div className={`mini-menu ${isOpen ? 'open' : 'closed'}`}>
     <button className="btn-agregar">Agregar</button>
