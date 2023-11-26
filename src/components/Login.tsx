@@ -17,6 +17,7 @@ const Login: React.FC = () => {
     // Simulamos una autenticación exitosa en este ejemplo
     if (username === 'root' && password === 'root') {
       setUser(username);
+      setPassword(password);
       setAuthentication(true);
       navigate('/');
     } else {
