@@ -28,7 +28,7 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h1>Iniciar Sesión</h1>
+        <h1>Iniciar sesión</h1>
         <div className="input-container">
           <FaUserAlt className="icon"/>
           <input

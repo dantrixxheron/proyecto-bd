@@ -4,14 +4,18 @@ import { ElementType } from "react";
 interface SidebarContentProps {
   icon: ElementType;
   info?: string;
-  onclick?: string;
+  onclick?: (() => void) | string; // Modificación en la definición de onclick
 }
 
 const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) => {
     const [text, setText] = useState("");  
     const onCEvent = () => {
       if (onclick) {
-        window.location.href = onclick;
+        if (typeof onclick === "string") {
+          window.location.href = onclick;
+        } else {
+          onclick();
+        }
       }
     }
   // useEffect(() => {

@@ -13,7 +13,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   const { user, password } = useAuth(); // Obtén el usuario y la contraseña desde el contexto
-
+  
   return (
     <div>
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
