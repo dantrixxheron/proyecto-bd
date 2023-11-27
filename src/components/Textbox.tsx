@@ -100,7 +100,7 @@ const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
 
   return (
     <div>
-      <textarea className={`textarea ${isOpen ? 'open' : 'closed'}`} value={query} onChange={handleQueryChange} />
+      <textarea id='Textarea' className={`textarea ${isOpen ? 'open' : 'closed'}`} value={query} onChange={handleQueryChange} placeholder='Ingrese su consulta SQL aquí...' />
       <button className={`runbutton ${isOpen?'open':'closed'}`} onClick={handleExecuteQuery}>
         Ejecutar
       </button>

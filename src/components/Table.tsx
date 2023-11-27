@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import './css/table.css';
 
 interface TableProps {
@@ -40,20 +40,27 @@ const Table: React.FC<TableProps> = ({ data, isOpen }) => {
     setShowMenu(!showMenu);
   };
 
+  // Función para enfocar la caja de texto
+  const focusTextarea = () => {
+    const textarea = document.getElementById('Textarea');
+    if (textarea) {
+      textarea.focus();
+    }
+  };
+
   // Renderizar la tabla
   return (
     <div>
-      {
-      /* Menú de operaciones CRUD */}
+      {/* Menú de operaciones CRUD */}
       <button className={`btn-toggle-menu ${isOpen ? 'open' : 'closed'}`} onClick={toggleMenu}>⁝</button>
       {showMenu && (
-    <div className={`mini-menu ${isOpen ? 'open' : 'closed'}`}>
-    <button className="btn-agregar">Agregar</button>
-          <button className="btn-modificar">Modificar</button>
-          <button className="btn-eliminar">Eliminar</button>
+        <div className={`mini-menu ${isOpen ? 'open' : 'closed'}`}>
+          <button className="btn-agregar" onClick={focusTextarea}>Agregar</button>
+          <button className="btn-modificar" onClick={focusTextarea}>Modificar</button>
+          <button className="btn-eliminar" onClick={focusTextarea}>Eliminar</button>
         </div>
       )}
-    
+
       <table className={`table ${(isOpen) ? 'open' : 'closed'}`}>
         <thead>
           <tr>
