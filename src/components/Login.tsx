@@ -5,6 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useAuth } from './AuthContext'; 
 import { useNavigate } from 'react-router-dom';
+import { login } from '../lib/api/login';
 
 const Login: React.FC = () => {
   const { setUser, setAuthentication } = useAuth();
@@ -12,17 +13,28 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // Realiza aquí la lógica de autenticación, por ejemplo, comparar con credenciales almacenadas
-    // Simulamos una autenticación exitosa en este ejemplo
-    if (username === 'root' && password === 'root') {
+  const handleLogin = async () => {
+    try {
+      const res = await login(username, password);
+
       setUser(username);
       setPassword(password);
       setAuthentication(true);
       navigate('/');
-    } else {
-      console.log('Credenciales incorrectas');
+    } catch (e) {
+      console.log("Credenciales incorrectas");
+      console.error("Error fetching: ", e);
     }
+    // Realiza aquí la lógica de autenticación, por ejemplo, comparar con credenciales almacenadas
+    // Simulamos una autenticación exitosa en este ejemplo
+    // if (username === 'root' && password === 'root') {
+    //   setUser(username);
+    //   setPassword(password);
+    //   setAuthentication(true);
+    //   navigate('/');
+    // } else {
+    //   console.log('Credenciales incorrectas');
+    // }
   };
 
   return (

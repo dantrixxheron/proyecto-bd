@@ -6,7 +6,7 @@ export async function getDatabases(user: string, passwd: string) {
     
         if (res.ok) {
             const data = await res.json();
-    
+            console.log(data);
             return data.databases;
         }
     
