@@ -1,14 +1,14 @@
 .textbox {
-    transition: margin-left 0.3s ease; /* Agrega una transición para suavizar el cambio de margen izquierdo */
+    transition: margin-left 0.7s ease; /* Agrega una transición para suavizar el cambio de margen izquierdo */
     align-items: center;
 }
   
   .textarea {
-    width: calc(100% - 17%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
-    height: 50vh; /* Ajusta la altura según tus necesidades */
+    width: calc(100% - 16%); /* Ajusta el ancho teniendo en cuenta el margen izquierdo del Sidebar */
+    height: 18vh; /* Ajusta la altura según tus necesidades */
     border-radius: 5px;
     padding: 5px;
-    margin: 10px;
+    margin: 28px;
   }
   
   .runbutton {
@@ -40,8 +40,10 @@
 /* Estilos adicionales cuando el Sidebar está abierto */
 .textarea.open {
     margin-left: 15%; /* Ancho cuando el Sidebar está abierto */
+    width: calc(100% - 18%); /* Ancho cuando el Sidebar está abierto */
   }
 .runbutton.open {
     margin-left: 15%;
+    width: calc(100% - 18%);
 }
   

@@ -1,30 +1,23 @@
 import React, { useState } from "react";
-import { BiSolidCoinStack } from "react-icons/bi";
-import { IoSettings, IoReloadCircle, IoHomeSharp, IoLogOut } from "react-icons/io5";
+import { ElementType } from "react";
 
 interface SidebarContentProps {
-  icon: string;
+  icon: ElementType;
   info?: string;
-  onclick?: () => void; // Haz la propiedad opcional con ?
+  onclick?: (() => void) | string; // Modificación en la definición de onclick
 }
 
 const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) => {
     const [text, setText] = useState("");  
-
-  const IconComponent = () => {
-    if (icon === "settings") {
-      return <IoSettings />;
-    } else if (icon === "reload") {
-      return <IoReloadCircle />;
-    } else if (icon === "home") {
-      return <IoHomeSharp />;
-    } else if(icon==="logout"){
-      return <IoLogOut />;
-    } else {
-      return <BiSolidCoinStack />;
+    const onCEvent = () => {
+      if (onclick) {
+        if (typeof onclick === "string") {
+          window.location.href = onclick;
+        } else {
+          onclick();
+        }
+      }
     }
-  };
-
   // useEffect(() => {
   //     Realizar solicitud a la base de datos para obtener el nombre de la base de datos en la raíz
   //     Aquí debes implementar la lógica para obtener el nombre de la base de datos desde la BD
@@ -44,8 +37,8 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
 
   return (
     <div className="text-sidebar">
-      <p onClick={onclick}>
-        <IconComponent /> {typeof info === "string" && <span>{info}</span>}
+      <p onClick={onCEvent}>
+        {React.createElement(icon)} {typeof info === "string" && <span>{info}</span>}
         {/* {IconComponent()} {text} */}
       </p>
     </div>
