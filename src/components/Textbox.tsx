@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import './css/textbox.css';
 import { rawQuery } from '../lib/api/rawQuery';
 import { useAuth } from './AuthContext';
+import { useDbContext } from './dbContext';
 
 interface TextboxProps {
   isOpen: boolean;
+  setData?: any;
 }
 
-const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
+const Textbox: React.FC<TextboxProps> = ({ isOpen, setData }) => {
   const [query, setQuery] = useState('');
   const { user, password } = useAuth();
   const [response, setResponse] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { database } = useDbContext();
 
   const handleExecuteQuery = async () => {
     try {
@@ -24,9 +27,11 @@ const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
       validateSqlQuery(query);
 
       // Ejecutar la consulta
-      if (user && password) {
-        // const res= await rawQuery(user, password, database, query);
-        // setResponse(res || []);
+      if (user && password&& database) {
+        const res= await rawQuery(user, password, database, query);
+        setData(res || []);
+      } else {
+        throw new Error('No se ha seleccionado una base de datos. PENDEJO'); 
       }
     } catch (err) {
     const error = err instanceof Error ? err.message : 'Error desconocido';
@@ -114,8 +119,8 @@ const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
       <button className={`runbutton ${isOpen?'open':'closed'}`} onClick={handleExecuteQuery}>
         Ejecutar
       </button>
-
       {error && <div className='error-message'>{error}</div>}
+
     </div>
   );
 };

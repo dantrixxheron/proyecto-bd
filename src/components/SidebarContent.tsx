@@ -4,6 +4,7 @@ import { ElementType } from "react";
 import { useDatabase } from "../lib/api/useDatabase";
 import { useAuth } from "./AuthContext";
 import { useDbContext } from "./dbContext";
+import SidebarTables from "./sidebarTables";
 
 interface SidebarContentProps {
   icon: ElementType;
@@ -11,19 +12,19 @@ interface SidebarContentProps {
   onclick?: string;
 }
 const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) => {
-  type DatabaseState = { [key: string]: string | string[] };
-  const [databases, setDatabases] = useState<DatabaseState>({});
+  const [tables, setTables] =  useState<string[]>([]);
   const [isActive, setIsActive] = useState(false);
   const { user, password } = useAuth();
   const { setDatabase } = useDbContext();
+  const [showTables, setShowTables] = useState(false);
   
   const clickDB = async () => {
     try {
       if (user && password && info) {
         const databases_res = await useDatabase(user, password, info);
-        setDatabases({database: databases_res.database,table:databases_res.tables} || {});
+        setTables(databases_res.tables || [] );
         setDatabase(info);
-        console.log({database: databases_res.database,table:databases_res.tables});
+        setShowTables(true);
       }
     } catch (error) {
       console.error('Error using database:', error);
@@ -33,6 +34,9 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
       setIsActive(!isActive);
       if (onclick==="use") {
         clickDB();
+      }
+      else if(onclick==="table"){
+        console.log("table");
       }
       else if(onclick==="reload"){
         window.location.reload();
@@ -46,8 +50,11 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
   return (
     <div className={`text-sidebar ${isActive ? 'active' : ''}`}>
       <p onClick={onCEvent}>
-        {React.createElement(icon)} {typeof info === "string" && <span>{info}</span>}
+        {React.createElement(icon)} {typeof info === 'string' && <span>{info}</span>}
       </p>
+        {showTables && tables.map((table:string, index: number) => (
+          <SidebarTables key={table} tableName={table} index={index}/>
+          ))}
     </div>
   );
 };
