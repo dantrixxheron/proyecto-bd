@@ -13,25 +13,20 @@ Utilizamos React, Typescript y Prisma.IO para la integración de MySQL.
 ### Tecnologías utilizadas:
  * React
  * Typescript
- * Prisma.IO
+ * Javascript
  * MySQL
+ * Express
+ * Nodemon
 
 ### Recursos:
 1. Íconos: https://react-icons.github.io/react-icons/
 
-#### Estructura GitHub
-Hay 2 ramas activas a parte de la principal: Home y Login:
-* Home: es la rama donde se van a estar desarrollando cambios de todo lo relacionado con la página principal (entre esas cosas está el sidebar que ya está completo en diseño, el cuadro de texto donde se podrá escribir la consulta y el cuadro de resultados)*.
-* Login: es la rama donde se va a desarrollar todo el diseño del login a la plataforma*.
-###### *Se va a poder estar unificando a la principal siempre y cuando algún componente ya esté completo.
 
-#### Codespaces.
-Los codespaces activos son para que de querer hacerlo puedan estar editando las ramas en el entorno virtual de GitHub. Lo consideré apto ya que es más práctico el programar y subir cambios al repositorio (y ramas).
-Para utilizarlo simplemente vas a la rama que vas a modificar y abres el codespace donde venga el nombre de esa rama que es la que está modificándose*.
-ESTO ES IMPORTANTE ya que los cambios que suban se subirán y sincronizarán en la rama que hayan abierto. Mantengamos el orden de los códigos para poder trabajar cada quien en su tiempo pero con las implementaciones de todos para no perder el tiempo (en eso).
 
 #### ¿Cómo iniciar una ejecución local del proyecto?
-1. Vas a terminal de Visual Studio Code (ya sea con codespaces o con tu Editor de Código siempre y cuando ya hayas bajado el repositorio y lo estés editando de esa manera).
-2. Ejecutas *nvm install 14*
-3. Ejecutas *nvm use 14* (para usar la versión 14 y posterior para que te deje ejecutar el siguiente comando)
-4. *npm run start*.
+1. Clonas el repositorio.
+2. Lo abres en tu IDE favorito (Local)
+3. *npm install*
+4. *npm i*
+5. *npm start*
+**Recuerda que para que funcionen las peticiones debes también tener prendido el servicio de Backend (repositorio y hacer el mismo procedimiento)**
