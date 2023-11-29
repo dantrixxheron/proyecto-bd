@@ -22,21 +22,13 @@ const SidebarDBN: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-<<<<<<< HEAD
   }, [user, password]
   );
-=======
-  }, [user, password]);
->>>>>>> 5cd63018a7dbee3613971d05cc8c8b1556d1acc6
 
   return (
     <div>
       {databases.map((dbName) => (
-<<<<<<< HEAD
         <SidebarContent key={dbName} icon={BiSolidCoinStack} info={dbName} onclick='use' />
-=======
-        <SidebarContent key={dbName} icon={BiSolidCoinStack} info={dbName} />
->>>>>>> 5cd63018a7dbee3613971d05cc8c8b1556d1acc6
       ))}
     </div>
   );

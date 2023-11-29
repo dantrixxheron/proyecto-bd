@@ -20,11 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         <div className="row-setings">
           <SidebarContent icon={IoHomeSharp} onclick="#" />
           <SidebarContent icon={IoSettings} onclick={'https://github.com'} />
-<<<<<<< HEAD
           <SidebarContent icon={IoReloadCircle} onclick="reload" />
-=======
-          <SidebarContent icon={IoReloadCircle} onclick="#" />
->>>>>>> 5cd63018a7dbee3613971d05cc8c8b1556d1acc6
           <SidebarContent icon={IoLogOut} onclick="./Login" />
         </div>
         <div className='dbnames'>
