@@ -13,6 +13,7 @@ interface AuthContextType {
   setAuthentication: Dispatch<SetStateAction<boolean>>;
 }
 
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {

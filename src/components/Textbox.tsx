@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './css/textbox.css';
+import { rawQuery } from '../lib/api/rawQuery';
+import { useAuth } from './AuthContext';
 
 interface TextboxProps {
   isOpen: boolean;
@@ -7,9 +9,11 @@ interface TextboxProps {
 
 const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
   const [query, setQuery] = useState('');
+  const { user, password } = useAuth();
+  const [response, setResponse] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const handleExecuteQuery = () => {
+  const handleExecuteQuery = async () => {
     try {
       // Validar que la caja de texto no esté en blanco
       if (!query.trim()) {
@@ -18,6 +22,12 @@ const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
 
       //Mensajes: error
       validateSqlQuery(query);
+
+      // Ejecutar la consulta
+      if (user && password) {
+        // const res= await rawQuery(user, password, database, query);
+        // setResponse(res || []);
+      }
     } catch (err) {
     const error = err instanceof Error ? err.message : 'Error desconocido';
     alert(`Error al ejecutar la consulta: ${error}`);
