@@ -1,0 +1,151 @@
+/* Estilos generales de la tabla */
+table {
+    width: calc(100% - 17%);
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+.table.open{
+    margin-left: 15%;
+}
+.table.closed{
+    margin-left: 5vh; /* Ancho cuando el Sidebar está cerrado */
+    width: 95%;
+}
+
+/* Estilos para el encabezado de la tabla */
+table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Estilos para las celdas de contenido */
+table td {
+    background-color: #555;
+    padding: 10px;
+}
+
+/* Estilos para las filas impares */
+table tr:nth-child(odd) {
+    background-color: #444;
+}
+
+/* Estilos para las filas pares */
+table tr:nth-child(even) {
+    background-color: #666;
+}
+.null.open{
+    margin-left: 15%;
+}
+.null.closed{
+    margin-left: 5vh; /* Ancho cuando el Sidebar está cerrado */
+    width: 95%;
+}
+.null{
+    width: calc(100% - 17%);
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+
+/* Botones */
+button:hover {
+    background-color: #444;
+  }
+
+.btnAnterior {
+    width: 100px;
+    height: 30px;
+    left: 26px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; 
+  }
+.btnAnterior.open {
+    margin-left: 13.4%; 
+  }
+  
+.btnSiguiente {
+    width: 100px;
+    height: 30px;
+    left: 82.5%;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; 
+  }  
+.btnSiguiente.open{
+    left: 70.5%;
+}
+
+
+/* Menú CRUD */
+.mini-menu {
+    position: absolute;
+    top: 42%;
+    left: 98%;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    z-index: 2;
+}
+/* Botones del menú CRUD */
+.mini-menu button {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 8px;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.mini-menu button:hover {
+    background-color: #444; 
+}
+.mini-menu.open{  /* Menu de opciones cuando el Sidebar esta abierto */
+    left: 99%;
+}
+
+
+/* Botón para acceder al menú */
+.btn-toggle-menu {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    left: 98%;
+    top: 32px; /* Ajusta según tu preferencia */
+    transition: background-color 0.3s ease;
+    z-index: 3;
+}
+.btn-toggle-menu:hover {
+    background-color: #444;
+}
+.btn-toggle-menu.open { /* Boton de menu de opciones cuando el Sidebar esta abierto */
+    left: 98.7%;
+}

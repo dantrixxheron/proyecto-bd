@@ -1,13 +1,17 @@
-// import React from 'react';
+// App.tsx
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './components/Routes';
+import { AuthProvider } from './components/AuthContext'; // Importa AuthProvider
 import './App.css';
-import Sidebar from './components/Sidebar';  // Corregir el nombre del componente aquí
-
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Sidebar />
-    </div>
+    <Router>
+      <AuthProvider> {/* Agrega el AuthProvider aquí */}
+        <AppRoutes />
+      </AuthProvider>
+    </Router>
   );
-}
+};
 
 export default App;

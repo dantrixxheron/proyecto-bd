@@ -1,0 +1,60 @@
+/* Sidebar.css */
+.sidebar {
+    width: 15%;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    transition: transform 0.3s ease; /* Cambia de left a transform */
+  }
+  
+  .sidebar.closed {
+    transform: translateX(-100%); /* Cambia de left a transform */
+  }
+  
+  .toggle-btn {
+    z-index: 1;
+    width: 40px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 5px !important;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: left 0.3s ease; /* Agrega la transición a la propiedad left */
+  }
+  
+  .text-sidebar {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  .text-sidebar:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #555;
+  }
+  .row-setings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  .dbnames {
+    overflow: auto;
+    height: calc(100vh - 60px);
+    margin-bottom: 25px;
+  }
+
+  .text-sidebar.active {
+    /* Estilos para cuando la clase active está presente */
+    background-color: #555; /* Puedes ajustar esto según tus necesidades */
+}
