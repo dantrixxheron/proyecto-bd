@@ -29,4 +29,5 @@ Utilizamos React, Typescript y Prisma.IO para la integración de MySQL.
 3. *npm install*
 4. *npm i*
 5. *npm start*
+
 **Recuerda que para que funcionen las peticiones debes también tener prendido el servicio de Backend (repositorio y hacer el mismo procedimiento)**
