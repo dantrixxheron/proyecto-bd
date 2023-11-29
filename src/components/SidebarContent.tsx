@@ -19,6 +19,7 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
       if (user && password && info) {
         const databases = await useDatabase(user, password, info);
         setDatabases(databases || []);
+        console.log(databases);
       }
     } catch (error) {
       console.error('Error using database:', error);
