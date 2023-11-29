@@ -1,6 +1,6 @@
 export async function getTabletContent(user: string, passwd: string, database: string, table: string) {
     try {
-        const res = await fetch('http://localhost:8080/api/databases/table/get', {
+        const res = await fetch(`http://localhost:8080/api/databases/table/get?user=${user}&passwd=${passwd}&database=${database}&table=${table}`, {
             method: "GET"
         });
     

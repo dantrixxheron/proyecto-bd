@@ -1,6 +1,6 @@
-export async function getRowInfo(user: string, passwd: string, database: string, table: string, row: string) {
+export async function getRowInfo(user: string, passwd: string, database: string, table: string) {
     try {
-        const res = await fetch('http://localhost:8080/api/databases/row/get', {
+        const res = await fetch(`http://localhost:8080/api/databases/row/get?user=${user}&passwd=${passwd}&database=${database}&table=${table}`, {
             method: "GET"
         });
     
