@@ -1,0 +1,48 @@
+/* delete-form.css */
+
+.delete-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Asegura que la ventana emergente esté en la parte superior */
+  }
+  
+  .delete-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    width: 300px; /* Tamaño fijo de la ventana emergente */
+    text-align: center;
+  }
+  
+  .delete-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .delete-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  .delete-form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .delete-form-buttons button {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  /* Puedes agregar más estilos según tus necesidades */
+  

@@ -2,8 +2,8 @@ import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import './css/table.css';
 import { deleteRow } from '../lib/api/deleteRow';
 import { useAuth } from './AuthContext';
-import { useDbContext } from './dbContext';
 import DeleteForm from './form/DeleteForm';
+import AddForm from './form/AddForm';
 interface TableProps {
   data: any[];
   isOpen: boolean;
@@ -14,13 +14,13 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showMenu, setShowMenu] = useState(false);
   const { user, password } = useAuth();
-  const { database, table } = useDbContext();
   const itemsPerPage = 10;
   // Show Forms
   const [addOpen, setAddOpen] = useState(false);
+  const [isAddFormOpen, setIsAddFormOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
-  const [deleteOpen, setDeleteOpen] = useState(false);
-
+  const [isDeleteFormOpen, setIsDeleteFormOpen] = useState(false);
+  let datas=[];
   if (data.length === 0) {
     return <div className={`null ${(isOpen) ? 'open' : 'closed'}`}>No hay datos disponibles.</div>;
   }
@@ -58,24 +58,16 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
     }
   };
 
-  // Borrar
-  // const deleteField = async (id_name: string, row_id:string) => {
-  //   try {
-  //     if(!user || !password || !database || !table) throw new Error("Error fetching: ");
-  //     const res = await deleteRow(user, password, database, table, id_name, row_id);
-
-  //     setData(res);
-  //   } catch (e: any) {
-  //     console.error("Error fetching: ", e);
-  //   }
-  // }
   const sure = () => {
-    setDeleteOpen(!deleteOpen);
-    <DeleteForm />
+    setIsDeleteFormOpen(true);
+  }
+
+  const closeDeleteForm = () => {
+    setIsDeleteFormOpen(false);
   }
   const showAddForm = () => {
-    
-  }
+    setIsAddFormOpen(true); // Cambia el estado para mostrar el formulario de agregar
+  };
   // Renderizar la tabla
   return (
     <div>
@@ -116,8 +108,11 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
       </div>
 
       {/* FORMS */}
-      {deleteOpen && (
-        <DeleteForm />
+      {isDeleteFormOpen && (
+        <DeleteForm closeDeleteForm={closeDeleteForm} />
+      )}
+      {isAddFormOpen && (
+        <AddForm setIsAddFormOpen={setIsAddFormOpen} formStructure={headers.reduce((acc, header) => ({ ...acc, [header]: '' }), {})} />
       )}
     </div>
   );
