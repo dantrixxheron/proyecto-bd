@@ -3,9 +3,13 @@ import React, { useState, useEffect } from 'react';
 import SidebarContent from './SidebarContent';
 import { BiSolidCoinStack } from 'react-icons/bi';
 import { getDatabases } from '../lib/api/getDatabases';
-import { useAuth } from './AuthContext'; // Asegúrate de importar useAuth desde el archivo correcto
+import { useAuth } from './contexts/AuthContext'; // Asegúrate de importar useAuth desde el archivo correcto
 
-const SidebarDBN: React.FC = () => {
+interface SidebarDBNProps {
+  setData?: any;
+}
+
+const SidebarDBN: React.FC<SidebarDBNProps> = (setData) => {
   const [databases, setDatabases] = useState<string[]>([]);
   const { user, password } = useAuth();
 
@@ -28,7 +32,7 @@ const SidebarDBN: React.FC = () => {
   return (
     <div>
       {databases.map((dbName) => (
-        <SidebarContent key={dbName} icon={BiSolidCoinStack} info={dbName} onclick='use' />
+        <SidebarContent key={dbName} icon={BiSolidCoinStack} info={dbName} onclick='use'/>
       ))}
     </div>
   );

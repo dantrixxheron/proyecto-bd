@@ -1,5 +1,6 @@
 export async function deleteRow(user: string, passwd: string, database: string, table: string, id_name:string, row_id: string) {
     try {
+        console.log(user, passwd, database, table, id_name, row_id);
         const res = await fetch(`http://localhost:8080/api/databases/row/delete`, {
             method: "POST",
             body: JSON.stringify({

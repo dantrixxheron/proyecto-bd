@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from './Home';
 import Login from './Login';
-import { useAuth } from './AuthContext';
+import { useAuth } from './contexts/AuthContext';
 
 const PrivateRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => {
   const { isAuthenticated } = useAuth();

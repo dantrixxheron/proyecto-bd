@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import './css/textbox.css';
 import { rawQuery } from '../lib/api/rawQuery';
-import { useAuth } from './AuthContext';
-import { useDbContext } from './dbContext';
+import { useAuth } from './contexts/AuthContext';
+import { useDbContext } from './contexts/dbContext';
+import { useData } from './contexts/dataContext';
 
 interface TextboxProps {
   isOpen: boolean;
-  setData?: any;
 }
 
-const Textbox: React.FC<TextboxProps> = ({ isOpen, setData }) => {
+const Textbox: React.FC<TextboxProps> = ({ isOpen }) => {
   const [query, setQuery] = useState('');
   const { user, password } = useAuth();
   const [response, setResponse] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const { database } = useDbContext();
+  const { setData } = useData();
 
   const handleExecuteQuery = async () => {
     try {

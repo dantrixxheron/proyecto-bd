@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import './css/deleteForm.css';
 import { deleteRow } from '../../lib/api/deleteRow';
-import { useAuth } from '../AuthContext';
-import { useDbContext } from '../dbContext';
+import { useAuth } from '../contexts/AuthContext';
+import { useDbContext } from '../contexts/dbContext';
+import { useData } from '../contexts/dataContext';
+
 interface DeleteFormProps {
   closeDeleteForm: () => void;
 }
 
 const DeleteForm: React.FC<DeleteFormProps> = ({ closeDeleteForm }) => {
   const { user, password } = useAuth();
-  const { database, table } = useDbContext();
-  const [data, setData] = useState<any>([]);
+  const {table, database,  } = useDbContext();
+  const { setData } = useData();
   const [formData, setFormData] = useState({
     id_name: '',
     row_id: ''
@@ -22,14 +24,16 @@ const DeleteForm: React.FC<DeleteFormProps> = ({ closeDeleteForm }) => {
   };
 
   const handleDelete = async () => {
-    /******************NO FUNCIONA**********************/
     try {
-          if(!user || !password || !database || !table) throw new Error("Error fetching: ");
-          const res = await deleteRow(user, password, database, table, formData.id_name, formData.row_id);
-          setData(res);
-        } catch (e: any) {
-          console.error("Error fetching: ", e);
+      if(!user || !password || !database || !table) {
+        throw new Error("Error fetching: ");
       }
+  
+      const res = await deleteRow(user, password, database, table, formData.id_name, formData.row_id);
+      setData(res || []);
+    } catch (e: any) {
+      console.error("Error fetching: ", e);
+    }
     closeDeleteForm();
   };
 

@@ -3,11 +3,11 @@ import Sidebar from './Sidebar';
 import Textbox from './Textbox';
 import Table from './Table';
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-import AddForm from './form/AddForm';
+import { useData } from './contexts/dataContext';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [datas, setDatas] = useState([]);
+  const { data, setData } = useData();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -17,9 +17,12 @@ const Home = () => {
       <button className="toggle-btn" onClick={toggleSidebar}>
         {isOpen ? <IoArrowBack /> : <IoArrowForward />}
       </button>
-      <Sidebar isOpen={isOpen} />
-      <Textbox isOpen={isOpen} setData={setDatas} />
-      <Table data={datas} isOpen={isOpen} setData={setDatas} />
+      <Sidebar isOpen={isOpen} setData={setData} />
+      <Textbox isOpen={isOpen} />
+      {
+        (data && data.length > 0) &&
+        <Table isOpen={isOpen}/>
+      }
     </div>
     );
 }

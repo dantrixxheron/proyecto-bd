@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { ElementType } from "react";
 import { useDatabase } from "../lib/api/useDatabase";
-import { useAuth } from "./AuthContext";
-import { useDbContext } from "./dbContext";
+import { useAuth } from "./contexts/AuthContext";
+import { useDbContext } from "./contexts/dbContext";
 import SidebarTables from "./sidebarTables";
-
+import { getTableContent } from "../lib/api/getTableContent";
+import { useData } from './contexts/dataContext';
+ 
 interface SidebarContentProps {
   icon: ElementType;
   info?: string;
@@ -15,8 +17,10 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
   const [tables, setTables] =  useState<string[]>([]);
   const [isActive, setIsActive] = useState(false);
   const { user, password } = useAuth();
-  const { setDatabase } = useDbContext();
+  const { setDatabase, setTable } = useDbContext();
+  const {table, database  } = useDbContext();
   const [showTables, setShowTables] = useState(false);
+  const { setData } = useData();
   
   const clickDB = async () => {
     try {
@@ -30,20 +34,35 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
       console.error('Error using database:', error);
     }
   };
-    const onCEvent = () => {
+    const onCEvent = async () => {
       setIsActive(!isActive);
       if (onclick==="use") {
         clickDB();
       }
       else if(onclick==="table"){
-        console.log("table");
+        console.log(info);
       }
       else if(onclick==="reload"){
         window.location.reload();
       }
-      else {
-        if (onclick){
+      else if (onclick!==undefined) {
+        if (onclick.includes("/") || onclick.includes("#")) {
           window.location.href = onclick;
+        } else {
+          try {
+            // SetTable
+            if (onclick!==undefined)
+            setTable(onclick)
+            console.log(!user, !password, !database, !onclick)
+            // EndPoint
+            if(!user || !password || !database || !onclick) {
+              throw new Error("Error fetching: ");
+            }
+            const res = await getTableContent(user, password, database, onclick);
+            setData(res || []);
+          } catch (e: any) {
+            console.log(e.message);
+          }
         }
       }
     }
@@ -53,7 +72,7 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ icon, info, onclick }) 
         {React.createElement(icon)} {typeof info === 'string' && <span>{info}</span>}
       </p>
         {showTables && tables.map((table:string, index: number) => (
-          <SidebarTables key={table} tableName={table} index={index}/>
+          <SidebarTables key={table} tableName={table} index={index} setData={setData}/>
           ))}
     </div>
   );

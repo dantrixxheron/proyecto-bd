@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './css/Login.css';
 import { FaUserAlt } from 'react-icons/fa';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { useAuth } from './AuthContext';
+import { useAuth } from './contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../lib/api/login';
 

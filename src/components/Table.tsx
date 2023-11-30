@@ -1,26 +1,26 @@
 import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import './css/table.css';
-import { deleteRow } from '../lib/api/deleteRow';
-import { useAuth } from './AuthContext';
+import { useAuth } from './contexts/AuthContext';
 import DeleteForm from './form/DeleteForm';
 import AddForm from './form/AddForm';
+import EditForm from './form/EditForm';
+import { useData } from './contexts/dataContext';
+
 interface TableProps {
-  data: any[];
   isOpen: boolean;
-  setData?: any;
 }
 
-const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
+const Table: React.FC<TableProps> = ({ isOpen }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showMenu, setShowMenu] = useState(false);
   const { user, password } = useAuth();
   const itemsPerPage = 10;
+  const { data } = useData();
   // Show Forms
   const [addOpen, setAddOpen] = useState(false);
   const [isAddFormOpen, setIsAddFormOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [isDeleteFormOpen, setIsDeleteFormOpen] = useState(false);
-  let datas=[];
   if (data.length === 0) {
     return <div className={`null ${(isOpen) ? 'open' : 'closed'}`}>No hay datos disponibles.</div>;
   }
@@ -50,14 +50,6 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
     setShowMenu(!showMenu);
   };
 
-  // Función para enfocar la caja de texto
-  const focusTextarea = () => {
-    const textarea = document.getElementById('Textarea');
-    if (textarea) {
-      textarea.focus();
-    }
-  };
-
   const sure = () => {
     setIsDeleteFormOpen(true);
   }
@@ -68,6 +60,9 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
   const showAddForm = () => {
     setIsAddFormOpen(true); // Cambia el estado para mostrar el formulario de agregar
   };
+  const showAlterMenu = () => {
+    setEditOpen(true); // Cambia el estado para mostrar el menú de editar
+  }
   // Renderizar la tabla
   return (
     <div>
@@ -76,7 +71,7 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
       {showMenu && (
         <div className={`mini-menu ${isOpen ? 'open' : 'closed'}`}>
           <button className="btn-agregar" onClick={showAddForm}>Agregar</button>
-          <button className="btn-modificar" onClick={focusTextarea}>Modificar</button>
+          <button className="btn-modificar" onClick={showAlterMenu}>Modificar</button>
           <button className="btn-eliminar" onClick={()=>sure()}>Eliminar</button>
         </div>
       )}
@@ -114,6 +109,10 @@ const Table: React.FC<TableProps> = ({ data, isOpen, setData }) => {
       {isAddFormOpen && (
         <AddForm setIsAddFormOpen={setIsAddFormOpen} formStructure={headers.reduce((acc, header) => ({ ...acc, [header]: '' }), {})} />
       )}
+      {
+        editOpen && (
+          <EditForm setIsAddFormOpen={setEditOpen} formStructure={headers.reduce((acc, header) => ({ ...acc, [header]: '' }), {})} />
+        )}
     </div>
   );
 };
