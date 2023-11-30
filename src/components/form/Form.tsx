@@ -5,16 +5,14 @@ import './css/form.css';
 interface FormProps {
   formData: Record<string, string>; // Cambiado a un objeto con strings
   setFormData: React.Dispatch<React.SetStateAction<Record<string, string>>>;
-  isEditing?: boolean;
 }
 
-const Form: React.FC<FormProps> = ({ formData, setFormData, isEditing = false }) => {
+const Form: React.FC<FormProps> = ({ formData, setFormData}) => {
   const formFields: JSX.Element[] = [];
 
   // Recorre las entradas del FormData y crea los campos del formulario
   for (const [key, value] of Object.entries(formData)) {
     // Si se está editando, permitir editar los valores existentes
-    const inputValue = isEditing ? value : '';
 
     formFields.push(
       <div key={key}>
@@ -32,7 +30,6 @@ const Form: React.FC<FormProps> = ({ formData, setFormData, isEditing = false })
   return (
     <form>
       {formFields}
-      <button className='submit'>{isEditing ? 'Actualizar' : 'Enviar'}</button>
     </form>
   );
 };
