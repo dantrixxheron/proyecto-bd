@@ -30,6 +30,7 @@ const DeleteForm: React.FC<DeleteFormProps> = ({ closeDeleteForm }) => {
       }
   
       const res = await deleteRow(user, password, database, table, formData.id_name, formData.row_id);
+      console.log(res);
       setData(res || []);
     } catch (e: any) {
       console.error("Error fetching: ", e);

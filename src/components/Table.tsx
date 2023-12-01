@@ -21,6 +21,8 @@ const Table: React.FC<TableProps> = ({ isOpen }) => {
   const [isAddFormOpen, setIsAddFormOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [isDeleteFormOpen, setIsDeleteFormOpen] = useState(false);
+  const [idName, setIdName] = useState('');
+  const [rowId, setRowId] = useState('');
   if (data.length === 0) {
     return <div className={`null ${(isOpen) ? 'open' : 'closed'}`}>No hay datos disponibles.</div>;
   }
@@ -60,9 +62,17 @@ const Table: React.FC<TableProps> = ({ isOpen }) => {
   const showAddForm = () => {
     setIsAddFormOpen(true); // Cambia el estado para mostrar el formulario de agregar
   };
-  const showAlterMenu = () => {
-    setEditOpen(true); // Cambia el estado para mostrar el menú de editar
+
+
+  const handleUpdate = () => {
+    const id_name = (prompt(`Campo a buscar:`));
+    const row_id = (prompt(`Contenido del campo:`));
+
+    setIdName(id_name || '');
+    setRowId(row_id || '');
+    setEditOpen(true);
   }
+
   // Renderizar la tabla
   return (
     <div>
@@ -71,7 +81,7 @@ const Table: React.FC<TableProps> = ({ isOpen }) => {
       {showMenu && (
         <div className={`mini-menu ${isOpen ? 'open' : 'closed'}`}>
           <button className="btn-agregar" onClick={showAddForm}>Agregar</button>
-          <button className="btn-modificar" onClick={showAlterMenu}>Modificar</button>
+          <button className="btn-modificar" onClick={handleUpdate}>Modificar</button>
           <button className="btn-eliminar" onClick={()=>sure()}>Eliminar</button>
         </div>
       )}
@@ -111,7 +121,7 @@ const Table: React.FC<TableProps> = ({ isOpen }) => {
       )}
       {
         editOpen && (
-          <EditForm setIsAddFormOpen={setEditOpen} formStructure={headers.reduce((acc, header) => ({ ...acc, [header]: '' }), {})} />
+          <EditForm setIsAddFormOpen={setEditOpen} formStructure={headers.reduce((acc, header) => ({ ...acc, [header]: '' }), {})} idName={idName} rowId={rowId} />
         )}
     </div>
   );

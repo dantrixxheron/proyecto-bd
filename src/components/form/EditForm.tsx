@@ -1,37 +1,56 @@
 /* AddForm.tsx */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from "./Form";
 import './css/AddForm.css'; /* Importa tu archivo CSS */
 import { updateRow } from '../../lib/api/updateRow';
 import { useAuth } from '../contexts/AuthContext';
 import { useDbContext } from '../contexts/dbContext';
 import { useData } from '../contexts/dataContext';
+import { getRowInfo } from '../../lib/api/getRowInfo';
 
 interface EditFormProps {
   setIsAddFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
   formStructure?: Record<string, string>; // Cambiado a un objeto con strings
   contentStructure?: Record<string, string>; // Cambiado a un objeto con strings
+  idName?: string;
+  rowId?: string;
 }
 
-const EditForm: React.FC<EditFormProps> = ({ setIsAddFormOpen, formStructure, contentStructure }) => {
+const EditForm: React.FC<EditFormProps> = ({ setIsAddFormOpen, formStructure, idName, rowId }) => {
   const [formData, setFormData] = useState(formStructure || {});
   const [isEditing, setIsEditing] = useState(false);
   const { user, password } = useAuth();
   const { database, table } = useDbContext();
   const { setData } = useData();
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (user && password && database && table && idName && rowId) {
+        const res = await getRowInfo(user, password, database, table, idName, rowId);
+        
+        console.log(res);
+        setFormData(res || {});
+      }
+    }
+
+    fetchData();
+  }, [])
+
   const updateText = async () => {
-    const id_name=(prompt(`Campo a buscar:`));
-    const row_id=(prompt(`Contenido del campo:`));
-    if (user && password && database && table && id_name && row_id) {
+
+    if (user && password && database && table && idName && rowId) {
       const columns = Object.keys(formData);
       const row_content = Object.values(formData);
 
-      const res = await updateRow(user, password, database, table, columns, row_content, id_name, row_id);
+      const res = await updateRow(user, password, database, table, columns, row_content, idName, rowId);
       setData(res || []);
     }
     setIsAddFormOpen(false);
   }
+
+
+
   return (
     <div className="overlay">
       <div className="add-form-container">

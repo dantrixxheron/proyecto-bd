@@ -20,6 +20,7 @@ const Form: React.FC<FormProps> = ({ formData, setFormData}) => {
         <input
           type="text"
           id={key}
+          value={formData[key] || ''}
           name={key}
           onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
         />
