@@ -23,7 +23,7 @@ Se nos implantó un proyecto que fuera un gestor de Bases de Datos, el cual deb�
 
 ### Recursos:
 1. Íconos: https://react-icons.github.io/react-icons/
-2. Repositorio Backend: https://github.com/AndresS0421/mysql-api
+2. Repositorio Backend: [https://github.com/AndresS0421/mysql-api](https://github.com/AndresS0421/mysql-webapp-api)
 
 ## Evidencias del proyecto 💻👾
 VIDEO DEMOSTRACIÓN: [https://youtu.be/HeD-0_-FBnw](https://youtu.be/HeD-0_-FBnw)
