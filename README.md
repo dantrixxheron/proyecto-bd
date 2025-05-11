@@ -1,52 +1,63 @@
+# Database Manager - Final Project for Database Subject
+**You can find the [Spanish version of this README](README.ES.md).** 🌎
 
-# Gestor de bases de datos - Proyecto Final de Bases de Datos 
-Este proyecto es desarrollado colaborativamente para el proyecto final de la clase de Bases de Datos de nuestra carrera de Ingeniería de Software en la Facultad de Telemática de la Universidad de Colima. 
+This project was collaboratively developed as the final assignment for the Database subject in our Software Engineering degree at the Telematics Faculty, University of Colima.
 
-### Especificaciones del proyecto 📄
-Se nos implantó un proyecto que fuera un gestor de Bases de Datos, el cual debía permitir inicialmente tener una conexión al usuario y las Bases de datos que se tuvieran localmente, hacer consultas tipo SELECT, mostrar los resultados de las consultas y la posibilidad de crear, alterar / modificar y/o eliminar registros de manera exitosa (CRUD) a través de formularios dinámicos; así como también debía verificar la sintaxis básica de un comando de consulta, **no permitir utilizar comandos absolutos (como drop database)**, que solo fuera una consulta a la vez, entre otras cosas.
+### Project Specifications 📄
+We were assigned to create a Database Manager that initially allowed:
+- Connecting to local users and databases.
+- Performing SELECT queries.
+- Displaying query results.
+- Creating, modifying, and deleting records (CRUD operations) through dynamic forms.
 
-### Equipo de Desarrollo: 👥🫱🏼‍🫲🏽
- - CRUZ MEJIA DANIELA               **[LIDER FRONTEND]**
- - FLORES CASTRO DAVID ALONSO       **[BACKEND]**
- - IGLESIAS RINCÓN FERNANDA NATALY  **[FRONTEND]**
- - MARTINEZ NAVARRO VICTOR JESUS    **[FRONTEND]**
- - SOLIS COVARRUBIAS ANDRES EDUARDO **[LIDER BACKEND]**
- 
-### Tecnologías utilizadas: 🚀⌨️
- * React
- * Typescript
- * Javascript
- * NodeJS
- * MySQL
- * Express
- * Nodemon
+The application also needed to:
+- Validate the basic syntax of queries.
+- **Disallow absolute commands (e.g., DROP DATABASE)**.
+- Process only one query at a time.
 
-### Recursos:
-1. Íconos: https://react-icons.github.io/react-icons/
-2. Repositorio Backend: [https://github.com/AndresS0421/mysql-api](https://github.com/AndresS0421/mysql-webapp-api)
+### Development Team 👥🫱🏼‍🫲🏽
+- **CRUZ MEJÍA DANIELA** - *Frontend Leader*
+- **FLORES CASTRO DAVID ALONSO** - *Backend Developer*
+- **IGLESIAS RINCÓN FERNANDA NATALY** - *Frontend Developer*
+- **MARTÍNEZ NAVARRO VÍCTOR JESÚS** - *Frontend Developer*
+- **SOLIS COVARRUBIAS ANDRÉS EDUARDO** - *Backend Leader*
 
-## Evidencias del proyecto 💻👾
-VIDEO DEMOSTRACIÓN: [https://youtu.be/HeD-0_-FBnw](https://youtu.be/HeD-0_-FBnw)
+### Technologies Used 🚀⌨️
+- React
+- TypeScript
+- JavaScript
+- Node.js
+- MySQL
+- Express
+- Nodemon
 
-## DANIELA CRUZ MEJIA:
-### Aprendizajes obtenidos. 👓👏🏼
-- Nociones básicas de los métodos GET, POST para obtener datos de API mediante el uso de FETCH y AWAIT ASYNC.
-- Mayor conocimiento de los métodos de REACT con Typescript: creación de componentes, HOOKS, contextos, diseño, peticiones, etc.
-- Nociones básicas del uso de NodeJS y comandos.
-- Mayor entendimiento del uso de sistemas de control de versiones (GITHUB).
-### Conclusiones personales.
-Este trabajo retó todas mis habilidades, React es un framework que nunca había trabajado de la mano con typescript, teníamos poco tiempo (un poco menos de dos semanas) y un proyecto grande con muchos requerimientos establecidos por el docente, otras tareas que realizar pero también la curiosidad del equipo de conocer si éramos capaces de realizar todo lo que se nos pedía para este proyecto. 
+### Resources
+1. [Backend Repository](https://github.com/AndresS0421/mysql-webapp-api).
 
-En lo personal, hubo momentos de frustración, hubo mucha investigación de por medio ya que desconcía lo requerido para realizar el trabajo asignado, hubo muchos obstáculos por desconocimiento y bloqueos del flujo de trabajo para investigar y realizar al mismo tiempo. Hubo muchas cuestiones que debímos resolver en equipo rápidamente con lo que conocíamos para no desperdiciar más el tiempo que se agotaba.
-A pesar de todo eso, con el esfuerzo de todos logramos conseguir un protoripo funcional del proyecto que, sin duda alguna nos dejó con el orgullo el saber que, a pesar de todos los impedimentos, obstáculos y retos que se presentaron durante el desarrollo del proyecto, logramos que éste estuviera listo en el tiempo asignado.
+## Project Demonstration 💻👾
+Video Demo: [https://youtu.be/HeD-0_-FBnw](https://youtu.be/HeD-0_-FBnw)
 
-Sin duda alguna la realización del proyecto a parte de dejarme conocimientos técnicos valiosos para mi formación como Ingeniero de Software y el desarrollo futuro en el ámbito laboral, también me deja con el orgullo de saber que a pesar de percibir que el proyecto me sobrepasa en conocimiento, tengo lo que se necesita para superarlo: persistencia, paciencia y curiosidad.
+## DANIELA CRUZ MEJÍA
 
-  
-#### ¿Cómo iniciar una ejecución local del proyecto? 🧑‍💻
-1. Clonas el repositorio.
-2. Lo abres en tu IDE favorito (Local)
-3. *npm install*
-4. *npm i*
-5. *npm start*
-**Recuerda que para que funcionen las peticiones debes también tener prendido el servicio de Backend (repositorio y hacer el mismo procedimiento)**
+### Key Learnings 👓👏🏼
+- Basic understanding of GET and POST methods to fetch API data using `fetch`, `async`, and `await`.
+- Deeper knowledge of React with TypeScript: components, hooks, context, design, requests, etc.
+- Basic experience with Node.js and command-line usage.
+- Improved understanding of version control systems (GitHub).
+
+### Personal Reflections
+This project challenged all my skills. I had never worked with React and TypeScript together before, and we had a very tight deadline—just under two weeks—with a large project full of strict requirements from our instructor.
+
+Personally, there were moments of frustration. I had to do a lot of research as I was unfamiliar with much of what was required. There were obstacles and workflow blocks due to lack of knowledge, and we had to solve many problems as a team using what we already knew in order to save time.
+
+Despite all the challenges, through teamwork and perseverance, we successfully delivered a functional prototype. It gave us a sense of pride knowing that we overcame so many obstacles to complete the project on time.
+
+Beyond the technical knowledge I gained for my development as a future Software Engineer, I’m also proud to know that even when a project seems beyond my current capabilities, I have what it takes to overcome it: persistence, patience, and curiosity.
+
+#### How to Run the Project Locally 🧑‍💻
+1. Clone the repository.
+2. Open it in your favorite IDE.
+3. Run `npm install`.
+4. Run `npm i` (optional duplicate step).
+5. Run `npm start`.
+> *Note: Ensure the backend service is also running by cloning and setting up the backend repository using the same steps.*
